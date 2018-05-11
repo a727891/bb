@@ -1,0 +1,13 @@
+<div *ngIf="buffs.ids.length">
+  <mat-toolbar color="accent">
+    <span>Load A Saved Template</span>
+  </mat-toolbar>
+
+  <div class="cardList">
+    <mat-card *ngFor="let b of buffs.ids" (click)="pick(buffs.entities[b])" >
+      <span>{{b}}</span>
+
+        <button class="deleteBtn" mat-icon-button (click)="deleteBuff(buffs.entities[b])"><mat-icon>delete</mat-icon></button>
+    </mat-card>
+  </div>
+</div>

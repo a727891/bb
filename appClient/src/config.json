@@ -1,0 +1,69 @@
+{
+    "characterSlot": 1,
+    "pixelMap": {
+        "loading": {
+            "login": {},
+            "connecting": {}
+        },
+        "avatarSelect": {
+            "x": 960,
+            "y": [
+                110,
+                130,
+                155,
+                175,
+                200
+            ]
+        },
+        "captcha": {
+            "clip":{"x":330,"y":372,"w":330,"h":110},
+            "input":{"x":360,"y":500},
+            "ok":{"x":390,"y":530}
+        },
+        "buffBuilder": {
+            "xOffset": {
+                "cat": 64,
+                "prop": 128
+            },
+            "categoryLocations": {
+                "attrib": 54,
+                "combat": 75,
+                "misc": 96,
+                "armor": 118,
+                "trader": 140
+            },
+            "optionLocations": {
+                "agl": 75,
+                "con": 95,
+                "luck": 115,
+                "prec": 137,
+                "stam": 160,
+                "str": 180,
+                "acr": 95,
+                "crit": 115,
+                "chr":140,
+                "glance": 160,
+                "xp": 115,
+                "harvest": 140,
+                "healer": 160,
+                "resilience": 180,
+                "flow": 200,
+                "secondChance": 220,
+                "elem":140,
+                "energy": 160,
+                "kinetic": 180,
+                "assembly":160,
+                "amazing":180,
+                "sampling":200
+            },
+            "acceptButton": {
+                "x": 300,
+                "y": 575
+            },
+            "clear":{
+                "x":410,
+                "y":575
+            }
+        }
+    }
+}

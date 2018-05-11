@@ -1,0 +1,36 @@
+<div class="background">
+  <div class="gradient">
+    <div class="container">
+      <h1>{{status.status}}</h1>
+      <div class="actions">
+        <a [ngClass]="animateOnRouteEnter" mat-raised-button color="accent" routerLink="../buff"> Get Buffed </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!!status.captcha">
+  <mat-toolbar color='warn'>Please Help! How many Rebel Horns are there?</mat-toolbar>
+  <mat-card>
+    <img mat-card-image [src]="status.captcha">
+    <mat-card-actions>
+      <button mat-mini-fab (click)="addCaptchaAnswer('1')">1</button>
+      <button mat-mini-fab (click)="addCaptchaAnswer('2')">2</button>
+      <button mat-mini-fab (click)="addCaptchaAnswer('3')">3</button>
+      <button mat-mini-fab (click)="addCaptchaAnswer('4')">4</button>
+      <button mat-mini-fab (click)="addCaptchaAnswer('5')">5</button>
+      <button mat-mini-fab (click)="addCaptchaAnswer('6')">6</button>
+      <button mat-mini-fab (click)="addCaptchaAnswer('0')">None</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<mat-toolbar color='accent'>
+  Up Next
+</mat-toolbar>
+<mat-list>
+  <mat-list-item *ngFor="let buff of status.pending">
+    {{buff.avatar}}
+  </mat-list-item>
+  <mat-list-item *ngIf="status.pending.length==0">
+    ... could be you!
+  </mat-list-item>
+</mat-list>

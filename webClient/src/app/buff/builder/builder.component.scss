@@ -1,0 +1,45 @@
+
+.buffList{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width:100%;
+    border-bottom: 1px solid black;
+
+  .name{
+    cursor:pointer;
+    width: 35%;
+    align-self: center;
+    .attributeName{
+      // color: blueviolet;
+    }
+    .pointCost{
+      font-size: 0.5em;
+    }
+  }
+  .status{
+    font-weight:bold;
+    align-self: center;
+  }
+
+}
+
+.undoMargins{
+  margin: 0 -24px;
+}
+
+
+.pointRemain{
+  color:gold;
+}
+
+.pointSpent{
+  color:gold;
+}
+
+
+.addBox{
+  margin: 0.5em 1em ;
+}

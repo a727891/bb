@@ -1,0 +1,24 @@
+<div class="builder">
+  <anms-characters
+    (selectAvatar)="SelectAvatar($event)"
+    (addAvatar)="AddAvatar($event)"
+    (deleteAvatar)="DeleteAvatar($event)"
+    [selected]="selectedAvatar$ | async"
+    [avatars]="avatars$ | async">
+  </anms-characters>
+  <anms-saved-buffs
+    (selectSavedBuff)="SelectSavedTemplate($event)"
+    (deleteSavedBuff)="DeleteBuff($event)"
+    [buffs]="savedBuffs$ | async">
+  </anms-saved-buffs>
+  <anms-builder
+    (ResetBuilder)="ResetBuilder()"
+    (AddPoint)="AddBuilderPoint($event)"
+    (SubPoint)="SubBuilderPoint($event)"
+    (SaveTemplate)="SaveTemplate($event)"
+    [buff]="buff$ | async" >
+  </anms-builder>
+  <anms-submit-button class="submitBtn"
+    [ready]="submitReady$ | async" (submitted)="SubmitBuff($event)">
+  </anms-submit-button>
+</div>

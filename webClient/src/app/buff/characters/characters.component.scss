@@ -1,0 +1,22 @@
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  mat-card {
+    cursor: pointer;
+    width: 10em;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+}
+.addBox{
+  margin: 0 1em ;
+}
+
+.avatarName.active {
+  font-weight: bold;
+  color: yellow;
+}

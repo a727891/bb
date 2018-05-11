@@ -1,0 +1,52 @@
+<mat-toolbar color="accent">
+  <span>
+    Build-A-Buff [Points Left
+    <span class="pointRemain"> {{total - buff.points}}</span>]
+  </span>
+  <span class="spacer"></span>
+  <button mat-button (click)="reset()">Reset</button>
+</mat-toolbar>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let cat of categories">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{cat.title}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list class="undoMargins">
+      <mat-list-item *ngFor="let p of cat.stats">
+        <div class="buffList">
+          <span class="name" (click)="incPoint(p)">
+            <span class="attributeName">{{labels[p]}}:</span>
+            <span class="pointCost">({{cost[p]}}pt)</span>
+          </span>
+          <button mat-icon-button (click)="incPoint(p)">
+            <mat-icon>add</mat-icon>
+          </button>
+          <span class="status">
+            <span [ngClass]="{'pointSpent':buff.buff[p]>0}">{{buff.buff[p]}}</span> / {{max[p]}}
+          </span>
+          <button mat-icon-button (click)="decPoint(p)">
+            <mat-icon>remove</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+<div class="addBox">
+    <anms-big-input placeholder="Save as template"
+      [value]="templateName"
+      (keyup)="onTemplateNameChange($event.target.value)"
+      (keyup.enter)="!isTemplateAddDisabled && addTemplate()"
+      (keyup.escape)="onTemplateNameClear()">
+      <anms-big-input-action
+        icon="add"
+        color="accent"
+        (action)="addTemplate()"
+        [disabled]="isTemplateAddDisabled"
+        matTooltip="Save Template"
+        matTooltipPosition="before">
+      </anms-big-input-action>
+    </anms-big-input>
+  </div>

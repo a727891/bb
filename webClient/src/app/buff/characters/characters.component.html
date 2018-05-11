@@ -1,0 +1,27 @@
+<div class="">
+  <mat-toolbar color="accent">
+    <span>Who should be Inspired?</span>
+    <span class="spacer"></span>
+    <span>
+      <button *ngIf="selected" mat-icon-button (click)="deleteToon(selected)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+  </mat-toolbar>
+  <div class="cardList">
+    <mat-card *ngFor="let a of avatars" (click)="pick(a)" >
+      <span class="avatarName" [ngClass]="{'active':selected===a}">{{a}}</span>
+    </mat-card>
+    <mat-card (click)="toggleAddNew()" *ngIf="avatars.length < 5">
+      <mat-icon>{{!addNewActive?'add':'remove'}}</mat-icon>
+    </mat-card>
+    <span *ngIf="avatars.length===0"><-- Click the + to get started</span>
+  </div>
+  <div *ngIf="addNewActive" class="addBox">
+    <anms-big-input placeholder="Add An Avatar" [value]="newName" (keyup)="onNewNameChange($event.target.value)" (keyup.enter)="!isAddDisabled && add()"
+      (keyup.escape)="onNewNameClear()">
+      <anms-big-input-action icon="add" color="accent" (action)="add()" [disabled]="isAddDisabled" matTooltip="Add Avatar" matTooltipPosition="before">
+      </anms-big-input-action>
+    </anms-big-input>
+  </div>
+</div>
