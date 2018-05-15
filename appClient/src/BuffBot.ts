@@ -143,8 +143,6 @@ export class BuffBot {
     if (isCaptchaOpen) {
       this.uploadCaptcha();
     } else {
-      this.state = BotState.Waiting;
-      this.updateStatusDocument(`Waiting on ${this.activeBuff.buff.avatar}`);
       this.db
         .doc(`buffs/${this.activeBuff.docId}`)
         .update({ status: BuffModels.BuffStatus.Done });
@@ -161,7 +159,7 @@ export class BuffBot {
   }
 
   handleCaptcha(number) {
-    if (number !== '0') {
+    if (number !== "0") {
       const gaveRightAnswer = this.captcha.AnswerCaptcha(
         number,
         this.BuffBuilder.getClientOffset()
@@ -172,16 +170,18 @@ export class BuffBot {
         isCaptchaOpen = this.BuffBuilder.acceptBuff();
       }
       this.captchaLogic(isCaptchaOpen);
-    }else{
+    } else {
       this.finishBuff();
     }
   }
 
   finishBuff() {
+    this.status.captchaUrl = null;
+    this.state = BotState.Waiting;
+    this.updateStatusDocument(`Waiting on ${this.activeBuff.buff.avatar}`);
     const done = this.BuffBuilder.WaitForWindowClose();
     //back to Idle?
     this.state = BotState.Idle;
-    this.status.captchaUrl = null;
     this.updateStatusDocument();
     this.run();
   }

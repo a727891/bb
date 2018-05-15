@@ -12,7 +12,7 @@
     <mat-card *ngFor="let a of avatars" (click)="pick(a)" >
       <span class="avatarName" [ngClass]="{'active':selected===a}">{{a}}</span>
     </mat-card>
-    <mat-card (click)="toggleAddNew()" *ngIf="avatars.length < 5">
+    <mat-card (click)="toggleAddNew()" *ngIf="avatars.length < 10">
       <mat-icon>{{!addNewActive?'add':'remove'}}</mat-icon>
     </mat-card>
     <span *ngIf="avatars.length===0"><-- Click the + to get started</span>
